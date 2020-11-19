@@ -85,42 +85,8 @@ def index(request):
     dept_id_dict = {}
     cat = object_list
     print('HOD FOUND',cat)
-    # for a in cat:
-    #         try: 
-    #             if a.id:
-
-    #                 department_ads = DepartmentAdverts.objects.all()
-    #                 # print('Ads dept ',department_ads.id, ' ___', department_ads.dep.head.user.username)
-    #                 # # prod = Product.objects.get(sub_category)
-    #                 # department_ads_dict[department_ads.id] = []
-    #                 # department_ads_dict[department_ads.id].append(str(department_ads.dep.head.user.username))                                       
-    #                 # dept_id_dict[department_ads.id] = []
-    #                 # dept_id_dict[department_ads.id].append(str(department_ads.dep.id))
-    #                 # product_name_dict[department_ads.id] = []
-    #                 # product_name_dict[department_ads.id].append(str(department_ads.product.name))
-    #                 # product_price_dict[department_ads.id] = []
-    #                 # product_price_dict[department_ads.id].append(str(department_ads.product.price))
-    #                 # product_description_dict[department_ads.id] = []
-    #                 # product_description_dict[department_ads.id].append(str(department_ads.product.short_description))
-    #                 # product_id_dict[department_ads.id] = []
-    #                 # product_id_dict[department_ads.id].append(str(department_ads.product.id))
-    #                 # product_image_dict[department_ads.id] = []
-    #                 # product_image_dict[department_ads.id].append(str(department_ads.product.image))
-    #             else:
-    #                 department_ads = DepartmentAdverts.objects.all()
-
-    #         except (TypeError, ValueError, OverflowError, Department.DoesNotExist):
-    #                 dcost = 'Risk not added yet'
     
     sub_category = SubCategory.objects.all()
-    # for sub_category in sub_category:
-    #     try:
-    #         product  = Product.objects.get(sub_category_id = sub_category.id)
-    #         dept_id_dict[sub_category.id] = []
-    #         dept_id_dict[department_ads.id].append(str(department_ads.dep.id))   
-
-    #     except (TypeError, ValueError, OverflowError, Product.DoesNotExist):
-    #                 dcost = 'Risk not added yet'
     department_ads = DepartmentAdverts.objects.all()
     about_us = About_us.objects.all()
     print('about us', about_us)
