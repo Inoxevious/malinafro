@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}Simple ecommerce </title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: none;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        form {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>
+        <a href="{% url 'index' %}">All Products</a> |
+        <a href="{% url 'ecommerce_app:show_cart' %}">Cart: {{ cart_item_count }} item</a>
+    </p>
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>

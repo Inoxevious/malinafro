@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Title -->
+    <title>NhumeApp</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'unify/assets/img/logo/nhume1-icon-preview.png' %}">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{% static 'unify/assets/vendor/bootstrap/bootstrap.min.css' %}">
+   <!-- CSS Implementing Plugins -->
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/icon-awesome/css/font-awesome.min.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/icon-line/css/simple-line-icons.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/icon-hs/style.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/hamburgers/hamburgers.min.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/animate.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/dzsparallaxer/dzsparallaxer.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/dzsparallaxer/dzsscroller/scroller.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/dzsparallaxer/advancedscroller/plugin.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/fancybox/jquery.fancybox.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/cubeportfolio-full/cubeportfolio/css/cubeportfolio.min.css' %}">
+   <link rel="stylesheet" href="{% static 'unify/assets/vendor/slick-carousel/slick/slick.css' %}">
+
+    <!-- CSS Unify Theme -->
+    <link rel="stylesheet" href="{% static 'unify/ecassets/assets/css/styles.op-app.css' %}">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{% static 'unify/assets/css/custom.css' %}">
+  </head>
+
+  <body>
+    <main>
+   
+        
+       {% block content %}
+       
+       {% endblock %}
+      
+       <a class="js-go-to u-go-to-v1" href="#"
+       data-type="fixed"
+       data-position='{
+         "bottom": 15,
+         "right": 15
+       }'
+       data-offset-top="400"
+       data-compensation="#js-header"
+       data-show-effect="zoomIn">
+      <i class="hs-icon hs-icon-arrow-top"></i>
+    </a>
+  </main>
+
+  <!-- JS Global Compulsory -->
+  <script src="{% static 'unify/assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/jquery-migrate/jquery-migrate.min.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/popper.js' %}/popper.min.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/bootstrap/bootstrap.min.js' %}"></script>
+
+  <!-- JS Implementing Plugins -->
+  <script src="{% static 'unify/assets/vendor/appear.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/dzsparallaxer/dzsparallaxer.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/dzsparallaxer/dzsscroller/scroller.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/dzsparallaxer/advancedscroller/plugin.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/fancybox/jquery.fancybox.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/cubeportfolio-full/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+  <script src="{% static 'unify/assets/vendor/slick-carousel/slick/slick.js' %}"></script>
+
+  <!-- JS Unify -->
+  <script src="{% static 'unify/assets/js/hs.core.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.header.js' %}"></script>
+  <script src="{% static 'unify/assets/js/helpers/hs.hamburgers.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.scroll-nav.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.onscroll-animation.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.tabs.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.cubeportfolio.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.popup.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.carousel.js' %}"></script>
+  <script src="{% static 'unify/assets/js/components/hs.go-to.js' %}"></script>
+
+<!-- JS Customization -->
+  <script src="{% static 'unify/assets/js/custom.js' %}"></script>
+
+  <!-- JS Plugins Init. -->
+  <script>
+    $(document).on('ready', function () {
+      // initialization of carousel
+      $.HSCore.components.HSCarousel.init('.js-carousel');
+
+      // initialization of header
+      $.HSCore.components.HSHeader.init($('#js-header'));
+      $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+      // initialization of tabs
+      $.HSCore.components.HSTabs.init('[role="tablist"]');
+
+      // initialization of scroll animation
+      $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+      // initialization of go to section
+      $.HSCore.components.HSGoTo.init('.js-go-to');
+
+      // initialization of popups
+      $.HSCore.components.HSPopup.init('.js-fancybox-media', {
+        helpers: {
+          media: {},
+          overlay: {
+            css: {
+              'background': 'rgba(255, 255, 255, .8)'
+            }
+          }
+        }
+      });
+    });
+
+    $(window).on('load', function() {
+      // initialization of HSScrollNav
+      $.HSCore.components.HSScrollNav.init($('#js-scroll-nav'), {
+        duration: 700
+      });
+
+      // initialization of cubeportfolio
+      $.HSCore.components.HSCubeportfolio.init('.cbp');
+    });
+
+    $(window).on('resize', function () {
+      setTimeout(function () {
+        $.HSCore.components.HSTabs.init('[role="tablist"]');
+      }, 200);
+    });
+  </script>
+ </body>
+</html>

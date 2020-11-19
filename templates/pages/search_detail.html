@@ -1,0 +1,440 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% load mathfilters %}
+{% load easy_maps_tags %}
+
+
+{% block content %}
+      <!-- Breadcrumbs -->
+      <div class="container g-pt-50 g-pb-80">
+        <ul class="u-list-inline g-font-weight-500 mb-2">
+          <li class="list-inline-item g-mr-5">
+            <a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">effi-fuels</a>
+            <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+          </li>
+          <li class="list-inline-item g-mr-5">
+            <a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">
+              {{sector}}
+            </a>
+            <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+          </li>
+         
+          <li class="list-inline-item g-color-gray-dark-v5">
+            <span>{{name}}</span>
+          </li>
+        </ul>
+        
+      </div>
+      <!-- End Breadcrumbs -->
+ 
+
+ <!-- Agent -->
+ <div class="container g-pb-30">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 order-lg-2 g-mb-70">
+        <!-- Agent Info -->
+        <div class="mb-4">
+          <h2>{{business.name}}</h2>
+          <ul class="list-inline g-color-text g-font-weight-600">
+            <li class="list-inline-item">Innocent, Mpasi</li>
+            <li class="list-inline-item">&#8226;</li>
+            <li class="list-inline-item">Registered 2014</li>
+          </ul>
+        </div>
+        <p class="g-line-height-2">
+            {{business.intro}}
+        </p>
+        <!-- End Agent Info -->
+
+        <hr class="g-brd-gray-light-v3 g-my-50">
+        
+
+</div>
+<div class="col-md-5 col-lg-3 order-lg-1 g-mb-70">
+    <img class="img-fluid w-100 g-mb-30" src="{{business.image.url}}" alt="Image Description">
+</div>
+</div>
+
+        <!-- Listing - Property History -->
+        <div class="g-brd-bottom g-brd-gray-light-v3  g-mt-30 g-mb-30">
+          <div class="row">
+            <div class="col-md-3 g-mb-30">
+              <h3 class="h6 g-font-weight-600 text-uppercase mb-0">Business Managerial Accounting Data</h3>
+            </div>
+
+            <div class="col-md-9 g-mb-30">
+              <h3 class="h6 g-font-weight-600 mb-4">Capital Investments Requirements</h3>
+
+              <!-- Table Bordered -->
+              <div class="table-responsive g-mb-30">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Units </th>
+                      <th>Quantity Required</th>
+                      <th>Unit Cost</th>
+                      <th>Total Cost</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {% if capital_items %}
+                    {% for cap in capital_items %}
+                    <tr> 
+                      <td>{{cap.name}}</td>
+                      <td>{{cap.units}}</td>
+                      <td>{{cap.qty}}</td>
+                      <td>{{cap.at}}</td>
+                      <td> {{cap.qty|mul:cap.at}}
+                      </td>
+                    </tr>
+                    
+                    {% endfor %}
+                    {% endif %}
+                    <tr>
+                      <th>Total</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <th>{{capital_sum}}</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h3 class="h6 g-font-weight-600 mb-4">Production and Operating Costs in US $</h3>
+
+              <!-- Table Bordered -->
+              <div class="table-responsive g-mb-30">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Units </th>
+                      <th>Quantity Required/Day</th>
+                      <th>Unit Cost</th>
+                      <th>Production Cost/Day</th>
+                      <th>Production Cost/Month</th>
+                      <th>Production Cost/Year</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {% if capital_items %}
+                    {% for cap in direct_cost_items %}
+                    <tr> 
+                      <td> {% if cap.name %}
+                            {{cap.name}}
+                            {% else %}
+                            ---
+                            {% endif %}
+                      </td>
+                      <td>{{cap.units}}</td>
+                      <td>{{cap.qty}}</td>
+                      <td>{{cap.at}}</td>
+                      <td> {{cap.qty|mul:cap.at}}
+                      </td>
+                      <td> {{cap.production_cost_month}}
+                      </td>
+                      <td> {{cap.production_cost_month|mul:12}}
+                      </td>
+                    </tr>
+                    
+                    {% endfor %}
+                    {% endif %}
+                    <tr>
+                      <th>Total</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <th> {{dcostlist}}
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+
+                      <th>General Cost</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    {% if capital_items %}
+                    {% for cap in general_cost_items %}
+                    <tr> 
+                     
+                      <td>{{cap.name}}</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>{{cap.production_cost_month}}</td>
+                      <td>{{cap.production_cost_month|mul:12}}</td>
+                      
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                    <tr>
+                      <th>Total General Cost</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <th>{{gcostlist}}</th>
+                    </tr>
+                    <tr>
+                      <th>Total Operating Cost</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <th>{{opcostlist}}</th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- End Table Bordered -->
+
+              <h3 class="h6 g-font-weight-600 mb-4">Project product Costs and Price Structure in US $</h3>
+
+              <!-- Table Bordered -->
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>      
+                      <th>Item</th>
+                      <th>Production days/month</th>
+                      <th>Output</th>
+                      <th>Quantity/day</th>
+                      <th>Quantity/year</th>
+                      <th>Unit Cost</th>
+                      <th>Production/day</th>
+                      <th>Unit Price</th>
+                      <th>Total Revenue</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {% if price_structure_items %}
+                    {% for cap in price_structure_items %}
+                    <tr>
+                      <td>{{cap.name}}</td>
+                      <td>{{cap.month_days}}</td>
+                      <td>{{cap.output}}</td>
+                      <td>{{cap.qty_day}}</td>
+
+                      <td>{{cap.qty_day|mul:cap.month_days}}</td>
+                      <td>{{cap.unit_cost}}</td>
+                      <td>{{cap.production_cost_day }}</td>
+                      <td>{{cap.unit_price}}</td>
+                      <td class="g-color-green">
+                        {% if cap.qty_day == 0 %}
+                        {{cap.output|mul:cap.unit_price}}
+                        {% else %}
+                        {{cap.month_days|mul:cap.qty_day|mul:cap.unit_price|mul:12}}
+                        {% endif %}
+                      
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                   
+                  </tbody>
+                </table>
+                <a href="#">More <i class="align-middle ml-2 fa fa-angle-down"></i></a>
+              </div>
+              <!-- End Table Bordered -->
+              <h3 class="h6 g-font-weight-600 mb-4">Profitability Analysis </h3>
+
+              <!-- Table Bordered -->
+              <div class="table-responsive g-mb-30">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>  
+                      <th>Profitability Item </th>
+                      <th>Per day </th>
+                      <th>Per Month</th>
+                      <th>Per Year</th>
+                      
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {% if price_structure_items %}
+                    {% for cap in price_structure_items %}
+                    <tr> 
+                      <td>Revenue</td>
+                      <td> {% if cap.qty_day == 0 %}
+                        {{cap.output|mul:cap.unit_price}}
+                        {% else %}
+                        {{cap.month_days|mul:cap.qty_day|mul:cap.unit_price|mul:12}}
+                        {% endif %}
+                      </td>
+                      <td> {% if cap.qty_day == 0 %}
+                        {{cap.output|mul:cap.unit_price}}
+                        {% else %}
+                        {{cap.month_days|mul:cap.qty_day|mul:cap.unit_price|mul:12}}
+                        {% endif %}
+                      </td>
+                      <td> {% if cap.qty_day == 0 %}
+                        {{cap.output|mul:cap.unit_price}}
+                        {% else %}
+                        {{cap.month_days|mul:cap.qty_day|mul:cap.unit_price|mul:12}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr> 
+                      <td>Less: Production & Operating Costs </td>
+                      <td> 
+                      </td>
+                      <td> 
+                      </td>
+                      <td> {{opcostlist}}
+                      </td>
+                    </tr>
+                    
+                    {% endfor %}
+                    {% endif %}
+                    <tr>
+                      <th>Total</th>
+                      <td></td>
+                      <td></td>
+                      <th>
+                        {% if price_structure_items %}
+                    {% for cap in price_structure_items %}
+                    {{cap.month_days|mul:cap.qty_day|mul:cap.unit_price|mul:12|sub:opcostlist}}
+                    {% endfor %}
+                    {% endif %}
+                  </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Listing - Property History -->
+                    <!-- Listing - Utilities Estimate -->
+                    <div class="g-brd-bottom g-brd-gray-light-v3 g-py-30 g-mt-30 g-mb-30">
+                      <div class="row">
+                        <div class="col-md-3 g-mb-30">
+                          <h3 class="h6 g-font-weight-600 text-uppercase mb-0">Risk Assessment</h3>
+                        </div>
+        
+                        <div class="col-md-9 g-mb-30">
+                          <div class="row">
+                            <div class="col-sm-6 g-mb-30">
+                              <h4 class="h5 g-font-weight-400 mb-3">Risk Score: <span class="g-font-weight-600">Excellent</span></h4>
+                              <p class="g-font-size-13 mb-0">This Business Scored <span class="g-font-weight-500">15/100</span></p>
+                              <p class="g-font-size-13 mb-0">{{risk_list}}</p>
+                            </div>
+                            <div class="col-sm-6 g-mb-30">
+                              <!-- <h4 class="h6 g-font-weight-600 mb-3">Total Cost: $198 / Monthly</h4>
+                              <ul class="list-unstyled g-color-text">
+                                <li class="g-py-5">
+                                  <i class="align-middle mr-2 icon-science-143 u-line-icon-pro"></i>
+                                  Gas: <span class="g-font-weight-500">$9.90</span>
+                                </li>
+                                <li class="g-py-5">
+                                  <i class="align-middle mr-2 icon-science-123 u-line-icon-pro"></i>
+                                  Water: <span class="g-font-weight-500">$105</span>
+                                </li>
+                                <li class="g-py-5">
+                                  <i class="align-middle mr-2 icon-science-018 u-line-icon-pro"></i>
+                                  Electric: <span class="g-font-weight-500">$56.50</span>
+                                </li>
+                              </ul> -->
+                            </div>
+                          </div>
+                          
+                          <a class="d-inline-block g-brd-bottom--dashed g-brd-primary g-color-text g-color-primary--hover g-font-size-13 g-text-underline--none--hover g-pb-1" href="#">Disclaimer</a>
+                          <span class="g-color-text mx-3">|</span>
+                          <a class="d-inline-block g-brd-bottom--dashed g-brd-primary g-color-text g-color-primary--hover g-font-size-13 g-text-underline--none--hover g-pb-1" href="#">About Risk Score</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Listing - Utilities Estimate -->
+                     <!-- Listing - Utilities Estimate -->
+                     <div class="g-brd-bottom g-brd-gray-light-v3 g-py-30 g-mt-30 g-mb-30">
+                      <div class="row">
+                        <div class="col-md-3 g-mb-30">
+                          <h3 class="h6 g-font-weight-600 text-uppercase mb-0">Business Support </br> & </br> Marketing Data</h3>
+                        </div>
+        
+                        <div class="col-md-9 g-mb-30">
+                          <div class="row">
+                            <div class="col-sm-6 g-mb-30">
+                              <h4 class="h5 g-font-weight-400 mb-3"><span class="g-font-weight-600">Marketing Demand</span></h4>
+                              <p class="g-font-size-13 mb-0">This Business Scored <span class="g-font-weight-500">15/100</span></p>
+                              <p class="g-font-size-13 mb-0">{{market_list}}</p>
+                              <hr class="g-brd-gray-light-v3 g-my-50">
+                                <h4 class="h6 g-font-weight-600 mb-3">Government Incentives Available:</h4>
+                                <p class="g-font-size-13 mb-0">
+                                  {% if market_list %}
+                                  {{gvt_list}}
+                                  {% else %}
+                                  No Government Incentives Available or Recorded.
+                                  {% endif %}
+                                </p>
+                                <hr class="g-brd-gray-light-v3 g-my-50">
+                                <h4 class="h5 g-font-weight-400 mb-3"><span class="g-font-weight-600">Source of further Business Information:</span></h4>
+                                <p class="g-font-size-13 mb-0"><span class="g-font-weight-500"></span></p>
+                                <p class="g-font-size-13 mb-0">{{market_list}}</p>
+                            </div>
+                            <div class="col-sm-6 g-mb-30">
+                              <h4 class="h6 g-font-weight-600 mb-3">Portfolio Manager</h4>
+                              <div class="u-shadow-v11 text-center">
+                                <div class="g-bg-white g-pa-20">
+                                  <div class="g-width-130 g-height-130 mx-auto mb-4">
+                                    <img class="img-fluid g-brd-around g-brd-3 g-brd-gray-light-v3 rounded-circle" src="assets/img-temp/200x200/img6.jpg" alt="Image Description">
+                                  </div>
+                                  <div class="mb-3">
+                                    <h3 class="h5"><a class="g-color-main" href="#">Innocent Mpasi</a></h3>
+                                    <span class="d-block g-color-gray-dark-v5 g-font-size-13 mb-1">Managing Director</span>
+                                  </div>
+                                  <span class="d-block g-font-weight-500 g-font-size-13">(00263) 1234 5678</span>
+                                  <span class="d-block g-font-weight-500 g-font-size-13">mpasi@malininvestments.co.zw</span>
+                                </div>
+                                <a class="btn btn-block u-btn-primary g-color-white--hover g-bg-secondary-dark-light-v1--hover g-font-weight-600 g-font-size-12 text-uppercase rounded-0 g-px-25 g-py-15" href="#">
+                                  Request for Review
+                                </a>
+                                <a class="btn btn-block g-color-main g-bg-white g-bg-secondary--hover g-font-weight-600 g-font-size-12 text-uppercase rounded-0 g-px-25 g-py-15 mt-0" href="#">Request Info</a>
+                              </div>
+                            </div>
+                           
+                          
+                          </div>
+
+                          <a class="d-inline-block g-brd-bottom--dashed g-brd-primary g-color-text g-color-primary--hover g-font-size-13 g-text-underline--none--hover g-pb-1" href="#">Disclaimer</a>
+                          <span class="g-color-text mx-3">|</span>
+                          <a class="d-inline-block g-brd-bottom--dashed g-brd-primary g-color-text g-color-primary--hover g-font-size-13 g-text-underline--none--hover g-pb-1" href="#">About Market Demand Assessment</a>
+                        
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Listing - Utilities Estimate -->
+      </div>
+
+      </div>
+      
+    </div>
+  </div>
+  <!-- End Listing - More Info -->
+ <!-- Listing - Property History -->
+
+
+
+{% endblock %}

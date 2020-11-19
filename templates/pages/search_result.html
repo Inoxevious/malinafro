@@ -1,0 +1,431 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% load easy_maps_tags %}
+{% block content %}
+
+      <!-- Filters -->
+      <div class="g-bg-cover g-bg-pos-top-center g-bg-img-hero" style="background-image: url(assets/img/bg/map-sketch.jpg);">
+        <div class="g-pos-rel g-z-index-1">
+          <h2 class="g-min-width-150 g-brd-none g-bg-secondary g-color-main g-color-primary--hover g-py-12">Search results</h2>
+          </div>
+      </div>
+      <div class="container-fluid g-pb-20">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-8 col-lg-6 g-mb-30">
+            <div class="d-flex align-items-center">
+              
+            </div>
+          </div>
+
+          <div class="col-md-4 col-lg-6 g-mb-30">
+            <div class="d-flex align-items-center float-md-right">
+              <h2 class="h6 g-font-weight-600 mr-4 mb-0">Sort by:</h2>
+
+              <!-- Input Group -->
+              <div class="input-group-btn">
+                <select class="js-custom-select u-select-v1 g-min-width-150 g-brd-none g-bg-secondary g-color-main g-color-primary--hover g-py-12" required
+                        data-placeholder="Bestseller"
+                        data-open-icon="fa fa-angle-down"
+                        data-close-icon="fa fa-angle-up">
+                  <option></option>
+                  <option class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="BE">Bestseller</option>
+                  <option class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="TR">Trending</option>
+                  <option class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="PR">Capital low to high</option>
+                  <option class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="PR">Capital high to low</option>
+                </select>
+              </div>
+              <!-- End Input Group -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Filters -->
+
+      <!-- List View -->
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 order-lg-2 g-mb-70">
+            <!-- List Item -->
+            {% if object_list %}
+            {% for hotspot in object_list %}
+            
+            <article class="row no-gutters g-mb-30">
+              
+              <div class="col-lg-3 col-md-5 g-pa-5 g-bg-secondary">
+                <img style="height: 200px; width: 250px;" src="{{hotspot.picture.url}}">
+              </div>
+
+              <div class="col-lg-9">
+                <div class="g-brd-around g-brd-top-none g-brd-gray-light-v3 g-bg-white">
+                  <!-- Products - List of Details -->
+                  <ul class="d-flex list-inline g-brd-y g-brd-gray-light-v3 mb-0">
+                    <li class="list-inline-item col-4 g-font-weight-500 g-font-size-13 text-center g-px-0 g-py-17 mr-0">
+                      
+                      Desiel:
+                      
+                     
+                     <p>
+                      {% for key, value in desiel_pump_pricedict.items %}
+                      {% if key == hotspot.id %}
+                     
+                      <i class="align-middle g-color-text mr-1 fa fa-dollar u-line-icon-pro"></i>
+                      {{ value }}
+                      
+                      {% endif %}
+                      {% endfor %}
+                     </p>
+                      
+                    </li>
+                    <li class="list-inline-item col-4 g-font-weight-500 g-font-size-13 text-center g-px-0 g-brd-x g-brd-gray-light-v3 g-py-17 mr-0">
+                      
+                      
+                      Petrol: 
+                      
+                      
+                      
+                      
+
+
+                     <p>
+                      {% for key, value in petrol_pump_pricedict.items %}
+                      {% if key == hotspot.id %}
+                      
+                      <i class="align-middle g-color-text mr-1 fa fa-dollar u-line-icon-pro"></i>
+                      {{ value }}
+                      {% endif %}
+                      {% endfor %}
+                     </p>
+                    </li>
+                    <li class="list-inline-item col-4 g-font-weight-500 g-font-size-13 text-center g-px-0 g-py-17 mr-0">
+                      
+                      LP Gas:
+                     <p>
+                      {% for key, value in gas_pump_pricedict.items %}
+                      {% if key == hotspot.id %}
+                      
+                      {{ value }}
+                      {% endif %}
+                      {% endfor %}
+                     </p> 
+                    </li>
+                  </ul>
+                  <!-- End Products - List of Details -->
+
+                  <!-- Products - Address -->
+                  <div class="g-pa-25">
+        
+<!-- Default map with 300x400 dimensions -->
+{% for key, value in addressdict.items %}
+{% if key == hotspot.id %}
+{% easy_map value 550 300 %}
+{% endif %}
+{% endfor %}
+          
+                  
+
+                  </div>
+                  <!-- End Products - Address -->
+
+                  <!-- Products - List of Details -->
+                  <ul class="d-flex list-inline align-items-center g-brd-top g-brd-gray-light-v3 mb-0">
+                    <li class="list-inline-item col-8 g-font-weight-600 g-font-size-17 text-center g-px-0 g-py-13 mr-0">
+                      <h3 class="g-font-weight-600 g-font-size-16"></h3>
+                      <p class="g-font-size-13 mb-4">{{hotspot.intro}}</p>
+                      <p class="g-color-text g-font-weight-500 g-font-size-13 mb-1">Manager: <a class="g-color-text g-color-primary--hover g-font-weight-400 g-text-underline--none--hover" href="#">{{hotspot.manager}}</a></p>
+                      <p class="g-color-text g-font-weight-500 g-font-size-13 mb-0">Notice: <span class="g-color-text g-font-weight-400">
+                        {% for key, value in market.items %}
+                        {% if key == hotspot.id %}
+                        
+                        {{ value }}
+                        {% endif %}
+                        {% endfor %}
+                      </a></p>
+                     
+                      <h7></h7> <i class="align-middle g-color-text mr-1 fa fa-fuel u-line-icon-pro"></i>
+                      {{hotspot.reference | upper}}
+                    </li>
+                    <li class="list-inline-item col-2 g-px-0 mr-0">
+                      <a class="d-block g-brd-x g-brd-gray-light-v3 g-color-text g-color-primary--hover g-font-weight-500 g-font-size-17 text-center g-text-underline--none--hover g-py-13" href="javascript:void(0);"
+                         data-toggle="tooltip"
+                         data-placement="top"
+                         title="Add to Compare">
+                        <i class="icon-finance-149 u-line-icon-pro"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item col-2 g-px-0 mr-0">
+                      <a class="d-block g-color-text g-color-primary--hover g-font-weight-500 g-font-size-17 text-center g-text-underline--none--hover g-py-13" href="javascript:void(0);"
+                         data-toggle="tooltip"
+                         data-placement="top"
+                         title="Save to Wishlist">
+                        <i class="icon-medical-022 u-line-icon-pro"></i>
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- End Products - List of Details -->
+                </div>
+                <a class="btn btn-block g-brd-top-none g-brd-gray-light-v3 g-brd-primary--hover g-color-main g-color-white--hover g-bg-secondary g-bg-primary-dark-v1--hover g-font-weight-600 rounded-0 g-px-18 g-py-15" href="{% url 'search:search_detail' hotspot.id %}">
+                  See Details
+                  <i class="align-middle ml-2 fa fa-angle-right"></i>
+                </a>
+              </div>
+            </article>
+            <!-- List Item -->
+            {% endfor %}
+            {% else %}
+            <p>No search found</p>
+            {% endif %}
+
+
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Pagination -->
+                {% if object_list.has_other_pages %}
+                <nav class="text-center g-mt-30" aria-label="Page Navigation">
+                  <ul class="list-inline">
+                    {% if object_list.has_previous  %}
+                    <li class="list-inline-item float-sm-left">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 u-pagination-v1-2--nav g-pa-12-21" href="?page={{object_list.previous_page_number}}" aria-label="Previous">
+                        <span aria-hidden="true">
+                          <i class="fa fa-angle-left g-mr-5"></i>
+                          Previous
+                        </span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    {% else %}
+                    <li class="list-inline-item g-hidden-sm-down">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 u-pagination-v1-2--active g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" >&laquo;</a>
+                    </li>
+                    {% endif %}
+                    <!-- Pages links -->
+              {% for i in object_list.paginator.page_range %}
+              {% if object_list.number == i %}
+                    <li class="list-inline-item g-hidden-sm-down">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" href="#!">{{i}}</a>
+                    </li>
+                    {% else %}
+                    <li class="list-inline-item g-hidden-sm-down">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" href="?page={{i}}">{{i}}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    <!-- <li class="list-inline-item g-hidden-sm-down">
+                      <span class="g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19">...</span>
+                    </li>
+                    <li class="list-inline-item g-hidden-sm-down">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" href="#!">15</a>
+                    </li> -->
+                     <!-- next arrow -->
+            {% if object_list.has_next  %}
+                    <li class="list-inline-item float-sm-right">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 u-pagination-v1-2--nav g-pa-12-21" href="?page={{object_list.next_page_number}}" aria-label="Next">
+                        <span aria-hidden="true">
+                          Next
+                          <i class="fa fa-angle-right g-ml-5"></i>
+                        </span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                    {% else %}
+                    <li class="list-inline-item g-hidden-sm-down">
+                      <a class="u-pagination-v1__item u-pagination-v1-2 g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" href="#!">15</a>
+                    </li>
+                    {% endif %}
+                  </ul>
+                </nav>
+                {% endif %}
+                <!-- End Pagination -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-5 col-lg-3 order-lg-1 g-mb-70">
+            <!-- Calculator -->
+            <div class="g-bg-secondary g-pa-5 g-mb-30">
+              <div class="g-bg-white g-pa-15">
+                <h2 class="h6 g-font-weight-600 mb-4">Profitability Analysis Calculator</h2>
+
+                <form>
+                  <!-- Text Input with Right Appended Icon -->
+                  <div class="form-group g-mb-20">
+                    <div class="input-group g-brd-primary--focus">
+                      <div class="input-group-prepend g-color-gray-light-v1 g-font-size-12 rounded-0">
+                        <div class="input-group-text justify-content-center g-width-40 g-bg-white g-brd-gray-light-v3">
+                          <i class="g-font-style-normal">&#36;</i>
+                        </div>
+                      </div>
+                      <input class="form-control form-control-md g-brd-gray-light-v3 g-font-weight-500 rounded-0 g-py-12" type="text" placeholder="Operating Cost">
+                    </div>
+                  </div>
+                  <!-- End Text Input with Right Appended Icon -->
+
+                  <!-- Text Input with Right Appended Icon -->
+                  <div class="form-group g-mb-20">
+                    <div class="input-group g-brd-primary--focus">
+                      <div class="input-group-prepend g-color-gray-light-v1 g-font-size-12 rounded-0">
+                        <div class="input-group-text justify-content-center g-width-40 g-bg-white g-brd-gray-light-v3">
+                          <i class="g-font-style-normal">&#36;</i>
+                        </div>
+                      </div>
+                      <input class="form-control form-control-md g-brd-gray-light-v3 g-font-weight-500 rounded-0 g-py-12" type="text" placeholder="Revenue">
+                    </div>
+                  </div>
+                  <!-- End Text Input with Right Appended Icon -->
+
+                  <!-- Text Input with Right Appended Icon -->
+                  <div class="form-group g-mb-20">
+                    <div class="input-group g-brd-primary--focus">
+                      <div class="input-group-prepend g-color-gray-light-v1 g-font-size-12 rounded-0">
+                        <div class="input-group-text justify-content-center g-width-40 g-bg-white g-brd-gray-light-v3">
+                          <i class="g-font-style-normal">&#37;</i>
+                        </div>
+                      </div>
+                      <input class="form-control form-control-md g-brd-gray-light-v3 g-font-weight-500 rounded-0 g-py-12" type="text" placeholder="Asset Depreciation">
+                    </div>
+                  </div>
+                  <!-- End Text Input with Right Appended Icon -->
+
+                  <!-- Select Date Range -->
+                  <div class="form-group mb-20">
+                    <!-- Datepicker -->
+                    <div class="input-group g-brd-primary--focus">
+                      <div class="input-group-prepend g-color-gray-light-v1 g-font-size-12 rounded-0">
+                        <div class="input-group-text justify-content-center g-width-40 g-bg-white g-brd-gray-light-v3">
+                          <i class="icon-calendar"></i>
+                        </div>
+                      </div>
+                      <input id="datepickerFrom" class="form-control form-control-md u-datepicker-v1 g-brd-gray-light-v3 g-font-weight-500 rounded-0 g-py-11" type="text" placeholder="Business Days" data-range="true" data-to="datepickerTo">
+                    </div>
+                    <!-- End Datepicker -->
+                  </div>
+                  <!-- Select Date Range -->
+
+                  <!-- Input Group -->
+                  <div class="input-group-btn g-mb-20">
+                    <select class="js-custom-select w-100 u-select-v1 g-brd-gray-light-v3 g-color-gray-dark-v5 g-color-primary--hover g-font-weight-500 g-py-10" required
+                            data-placeholder="Monthly"
+                            data-open-icon="fa fa-angle-down"
+                            data-close-icon="fa fa-angle-up">
+                      <option></option>
+                      <option class="g-brd-none g-color-gray-dark-v5 g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="MO">Monthly</option>
+                      <option class="g-brd-none g-color-gray-dark-v5 g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="DA">Daily</option>
+                      <option class="g-brd-none g-color-gray-dark-v5 g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="WE">Weekly</option>
+                      <option class="g-brd-none g-color-gray-dark-v5 g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active" value="YE">Yearly</option>
+                    </select>
+                  </div>
+                  <!-- End Input Group -->
+
+                  <button class="btn btn-block u-btn-primary g-color-white g-bg-primary-dark-v1--hover g-font-weight-600 rounded-0 g-px-35 g-py-12" type="submit">Calculate</button>
+                </form>
+              </div>
+            </div>
+            <!-- End Calculator -->
+
+            <!-- Property Status -->
+            <div class="g-bg-secondary g-pa-5 g-mb-30">
+              <div class="g-bg-white g-pa-15">
+                <h2 class="h6 g-font-weight-600 mb-4">Required Business Location </h2>
+
+                <ul class="list-unstyled g-font-weight-500 mb-0">
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Urban</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(53)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Rural</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(38)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End Property Status -->
+
+            <!-- Property Type -->
+            <div class="g-bg-secondary g-pa-5 g-mb-30">
+              <div class="g-bg-white g-pa-15">
+                <h2 class="h6 g-font-weight-600 mb-4">Sectors</h2>
+
+                <ul class="list-unstyled g-font-weight-500 mb-0">
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Agriculture</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(27)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Trade</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(2)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Mining</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(12)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Forestry</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(9)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Tourism</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(19)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Infrastructure</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(5)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Oil and Gas</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(10)</span>
+                  </li>
+                  <li class="g-py-2">
+                    <a href="#"><i class="mr-1 fa fa-caret-right"></i> Health</a>
+                    <span class="float-right g-color-gray-dark-v5 g-font-size-13">(10)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- End Property Type -->
+
+            <!-- Recently Viewed -->
+            <div class="g-bg-secondary g-pa-5 g-mb-30">
+              <div class="g-bg-white g-pa-15">
+                <h2 class="h6 g-font-weight-600 mb-4">Recommended For You</h2>
+                <p>Based on your location</p>
+
+                <ul class="list-unstyled g-font-weight-500 mb-0">
+                  <!-- Recently Viewed - Products -->
+                  {% if object_list %}
+            {% for hotspot in object_list %}
+                  <li class="g-brd-bottom g-brd-gray-light-v3 g-pb-30">
+                    <img class="img-fluid w-100 mb-3" src="{{hotspot.image.url}}" alt="Image Description">
+                    <h3 class="h6 g-font-weight-600 mb-1"><a class="u-link-v5 g-color-main g-color-primary--hover" href="{% url 'search:search_detail' hotspot.id %}">{{hotspot.name}}</a></h3>
+                    <span class="d-block g-color-text g-font-weight-600 mb-2">
+                      {% for key, value in total.items %}
+                      {% if key == hotspot.id %}
+                      <p>Capital Investment</p>
+                      <i class="align-middle g-color-text mr-1 fa fa-dollar u-line-icon-pro"></i>
+
+                      {{ value }}
+                      
+                      {% endif %}
+                      {% endfor %}
+                    </span>
+              
+                  </li>
+                  <!-- End Recently Viewed - Products -->
+                  {% endfor %}
+                  {% else %}
+                  <p>No Recommendation</p>
+                  {% endif %}
+                  
+                </ul>
+              </div>
+            </div>
+            <!-- End Recently Viewed -->
+          </div>
+        </div>
+      </div>
+      <!-- List View -->
+
+      <hr class="g-brd-gray-light-v4">
+
+{% endblock %}
+
+  

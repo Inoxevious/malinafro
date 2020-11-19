@@ -1,0 +1,1 @@
+from grabitapp.wsgi import application

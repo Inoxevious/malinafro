@@ -1,0 +1,500 @@
+{% extends 'pages/base.html' %} {% load static %} {% block content %}
+<header
+  id="js-header"
+  class="u-header u-header--sticky-top u-header--toggle-section u-header--change-appearance"
+  data-header-fix-moment="600"
+  data-header-fix-effect="slide"
+>
+  <div
+    class="u-header__section g-transition-0_5"
+    data-header-fix-moment-exclude="g-mt-0"
+    data-header-fix-moment-classes="g-mt-minus-73 g-mt-minus-76--md"
+  >
+    {% include 'pages/partials/_top_bar.html'%}
+  </div>
+  {% include 'pages/partials/_nav_bar.html'%}
+</header>
+<!-- Promo Block -->
+<div class="container g-pt-1 g-pb-70">
+    <!-- News Section -->
+    <div class="u-heading-v3-1 g-mb-30">
+      <h2
+        class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary"
+      >
+        {{dept.name}}
+      </h2>
+    </div>
+  
+    <div class="shortcode-html">
+      <!-- Team Block -->
+      <div class="row">
+        <div class="col-sm-4 g-mb-60">
+          <!-- Figure -->
+          <figure class="text-center">
+            <!-- Figure Image -->
+            <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+              <!-- <img class="rounded-circle g-max-width-190" src="../../assets/img-temp/200x200/img3.jpg" alt="Image Description"> -->
+            </div>
+            <!-- End Figure Image -->
+  
+            <!-- Figure Info -->
+            <div class="g-mb-15">
+              <!-- <h4 class="h4 g-color-black g-mb-5">Samantha Fox</h4> -->
+              <!-- <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Stylist</em> -->
+            </div>
+            <!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
+            <!-- End Info -->
+  
+            <!-- Figure Social Icons -->
+            <ul class="text-center list-inline mb-0">
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <!-- <i class="fa fa-twitter"></i> -->
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <!-- <i class="fa fa-facebook"></i> -->
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <!-- <i class="fa fa-dribbble"></i> -->
+                </a>
+              </li>
+            </ul>
+            <!-- End Figure Social Icons -->
+          </figure>
+          <!-- End Figure -->
+        </div>
+  
+        <div class="col-sm-4 g-mb-60">
+          <!-- Figure -->
+          <figure class="text-center">
+            <!-- Figure Image -->
+            <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+              <img class="rounded-circle g-max-width-190" src="{{dept.head.profile_pic.url}}" alt="Image Description">
+            </div>
+            <!-- End Figure Image -->
+  
+            <!-- Figure Info -->
+            <div class="g-mb-15">
+              <h4 class="h4 g-color-black g-mb-5">Dorian Black</h4>
+              <em class="g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Photography</em>
+            </div>
+            <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+            <!-- End Info -->
+  
+            <!-- Figure Social Icons -->
+            <ul class="text-center list-inline mb-0">
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- End Figure Social Icons -->
+          </figure>
+          <!-- End Figure -->
+        </div>
+  
+        <div class="col-sm-4 g-mb-60">
+          <!-- Figure -->
+          <figure class="text-center">
+            <!-- Figure Image -->
+            <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+              <!-- <img class="rounded-circle g-max-width-190" src="../../assets/img-temp/200x200/img6.jpg" alt="Image Description"> -->
+            </div>
+            <!-- End Figure Image -->
+  
+            <!-- Figure Info -->
+            <div class="g-mb-15">
+              <!-- <h4 class="h4 g-color-black g-mb-5">Alice Williams</h4> -->
+              <!-- <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">Manager</em> -->
+            </div>
+            <!-- <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p> -->
+            <!-- End Info -->
+  
+            <!-- Figure Social Icons -->
+            <ul class="text-center list-inline mb-0">
+              <li class="list-inline-item g-mx-4">
+                <!-- <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-twitter"></i>
+                </a> -->
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <!-- <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-facebook"></i>
+                </a> -->
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <!-- <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-dribbble"></i>
+                </a> -->
+              </li>
+            </ul>
+            <!-- End Figure Social Icons -->
+          </figure>
+          <!-- End Figure -->
+        </div>
+      </div>
+      <!-- End Team Block -->
+    </div>
+  
+    <div class="shortcode-html">
+      <!-- Team Block -->
+      <div class="row">
+        {% if object_list %}
+        <p></p>
+        {% for hotspot in object_list %}
+        <div class="col-sm-4 g-mb-60">
+          <!-- Figure -->
+          <figure class="text-center">
+            <!-- Figure Image -->
+            <div class="d-block mx-auto rounded-circle g-max-width-200 g-bg-white g-pa-5 g-mb-15">
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                <img
+                  class="img-fluid w-100"
+                  src="{{hotspot.profile_pic.url}}"
+                  alt="Image Description"
+                />
+      
+                <figcaption class="g-pos-abs g-top-20 g-left-20">
+                  <a class="btn btn-xs  text-uppercase rounded-0" href="#!"></a>
+                  {{hotspot.country.name}}
+                    <div class="g-width-32 g-height-30">
+                      <img
+                        class="img-fluid g-brd-around g-brd-2 g-brd-white rounded-circle"
+                        src="{{hotspot.country.flag.url}}"
+                        alt="Image Description"
+                      /></div
+                  ></a>
+                </figcaption>
+              </figure>   </div>
+            <!-- End Figure Image -->
+  
+            <!-- Figure Info -->
+            <div class="g-mb-15">
+              <h4 class="h4 g-color-black g-mb-5">{{ hotspot.user.first_name}} {{hotspot.user.last_name}}</h4>
+             <em class="d-block g-font-style-normal g-font-size-11 text-uppercase g-color-primary">
+              <p>
+  
+                {% for key, value in dept_id_dict.items %}
+                {% if key == hotspot.id %}
+                <a
+              class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover"
+              href="{% url 'pages:dept_detail' value|join:", " %}"
+              > 
+                <p></p>
+                {{ value|join:", "  }}
+                
+                {% endif %}
+                {% endfor %} , {% for key, value in dept_dict.items %}
+                {% if key == hotspot.id %}
+               
+                <p></p>
+                {{ value|join:", "  }}
+                
+                {% endif %}
+                {% endfor %}
+              </p> 
+              
+              {% for key, value in executive_role_dict.items %}
+                {% if key == hotspot.id %}
+  
+                <p></p>
+                {{ value|join:", "  }}
+                
+                {% endif %}
+                {% endfor %} , {% for key, value in dept_dict.items %}
+                {% if key == hotspot.id %}
+               
+                <p></p>
+                {{ value|join:", "  }}
+                
+                {% endif %}
+                {% endfor %}
+              </em>
+            </div>
+            <p>{{ hotspot.user.bio}}</p>
+            <!-- End Info -->
+  
+            <!-- Figure Social Icons -->
+            <ul class="text-center list-inline mb-0">
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item g-mx-4">
+                <a href="#" class="u-icon-v3 u-icon-size--sm g-bg-gray-light-v5 g-color-gray-light-v2 g-bg-primary--hover g-color-white--hover rounded-circle">
+                  <i class="fa fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- End Figure Social Icons -->
+          </figure>
+          <!-- End Figure -->
+        </div> 
+        {% endfor %}
+        <p></p>
+        {% else %}
+        <p>No Recommendation</p>
+        {% endif %}
+      </div>
+      <!-- End Team Block -->
+    </div>
+  
+    <div class="row g-mb-70">
+      {% if object_list %}
+      <p></p>
+      {% for hotspot in object_list %}
+      <!-- Popular News -->
+      <div class="col-md-4 g-mb-50">
+        <!-- Article -->
+        <article class="g-mb-40">
+          <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+            <img
+              class="img-fluid w-100"
+              src="{{hotspot.profile_pic.url}}"
+              alt="Image Description"
+            />
+  
+            <figcaption class="g-pos-abs g-top-20 g-left-20">
+              <a class="btn btn-xs  text-uppercase rounded-0" href="#!"></a>
+              {{hotspot.country.name}}
+                <div class="g-width-32 g-height-30">
+                  <img
+                    class="img-fluid g-brd-around g-brd-2 g-brd-white rounded-circle"
+                    src="{{hotspot.country.flag.url}}"
+                    alt="Image Description"
+                  /></div
+              ></a>
+            </figcaption>
+          </figure>
+  
+          <h3 class="h4 g-mb-10">
+            <a
+              class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover"
+              href="#!"
+              >
+              <p>
+                  {% for key, value in executive_role_dict.items %}
+                  {% if key == hotspot.id %}
+                 
+                  <p></p>
+                  {{ value|join:", "  }}
+                  
+                  {% endif %}
+                  {% endfor %}
+                 </p></a
+            >
+          </h3>
+  
+          <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+            <li class="list-inline-item">
+              <a
+                class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover"
+                href="#!"
+                >{{hotspot.user.first_name}} {{hotspot.user.last_name}}</a
+              >
+            </li>
+            <li class="list-inline-item">/</li>
+            <li class="list-inline-item">
+              <p>
+                  {% for key, value in appointment_date_dict.items %}
+                  {% if key == hotspot.id %}
+                 
+                  <p></p>
+                  {{ value|join:", "  }}
+                  
+                  {% endif %}
+                  {% endfor %}
+                 </p>
+            </li>
+            <li class="list-inline-item">/</li>
+            <li class="list-inline-item">
+              <a
+                class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover"
+                href="#!"
+              >
+                <i
+                  class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"
+                ></i>
+                24
+              </a>
+            </li>
+          </ul>
+  
+          <p class="g-color-gray-dark-v41">
+              <p>
+                  {% for key, value in dept_dict.items %}
+                  {% if key == hotspot.id %}
+                 
+                  <p></p>
+                  {{ value|join:", "  }}
+                  
+                  {% endif %}
+                  {% endfor %}
+                 </p>
+          </p>
+          <a class="g-font-size-12" href="#!">Read More..</a>
+        </article>
+        <!-- End Article -->
+      </div>
+      <!-- End Popular News -->
+      <!-- End Recently Viewed - Products -->
+      {% endfor %}
+      <p></p>
+      {% else %}
+      <p>No Recommendation</p>
+      {% endif %}
+    </div>
+    <!-- End News Section -->
+  
+    <!-- Recent Videos -->
+    <div class="u-heading-v3-1 g-mb-30">
+      <h2
+        class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary"
+      >
+        departments Media 
+      </h2>
+    </div>
+  
+    <div class="row">
+      {% if notices %}
+      <p></p>
+      {% for notice in notices %}
+      <!-- Article Video -->
+      <div class="col-6 col-md-4 col-lg-3 g-mb-30">
+        <article>
+          <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+            <img
+              class="img-fluid w-100"
+              src="{{notice.image.url}}"
+              alt="Image Description"
+            />
+  
+            <figcaption class="g-pos-abs g-top-10 g-left-10">
+              <a class="btn btn-xs u-btn-blue text-uppercase rounded-0" href="{% url 'pages:notice_detail' notice.id %}"
+                >{{notice.dep.name}}</a
+              >
+            </figcaption>
+  <a href="{% url 'pages:notice_detail' notice.id %}">
+  
+  
+            <span
+              class="u-icon-v3 u-icon-size--sm g-font-size-13 g-bg-white g-bg-black--hover g-color-white--hover rounded-circle g-cursor-pointer g-absolute-centered"
+            >            
+              <i class="fa fa-play g-left-2"></i>
+            </span>
+          </a>
+          </figure>
+  
+          <h3 class="g-font-size-16 g-mb-10">
+            <a
+              class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover"
+              href="{% url 'pages:notice_detail' notice.id %}"
+              href="#!"
+              >Clark Valberg is a new CEO of InVision..</a
+            >
+          </h3>
+        </article>
+      </div>
+      <!-- End Article Video -->
+      {% endfor %}
+      <p></p>
+      {% else %}
+      <p>No Notices</p>
+      {% endif %}
+  
+  
+  
+    </div>
+    <!-- End Recent Videos -->
+  </div>
+  <!-- End Promo Block -->
+  
+  <!-- Pagination -->
+  <div class="container g-pb-100">
+      {% if object_list.has_other_pages %}
+    <nav aria-label="Page Navigation">
+      <ul class="list-inline text-center mb-0">
+          {% if object_list.has_previous  %}
+        <li class="list-inline-item">
+          <a
+            class="active u-pagination-v1__item g-width-30 g-height-30 g-brd-secondary-light-v2 g-brd-primary--active g-color-white g-bg-primary--active g-font-size-12 rounded g-pa-5"
+            href="?page={{object_list.previous_page_number}}"
+            >Previous</a
+          >
+        </li>
+        {% else %}
+        <li class="list-inline-item g-hidden-sm-down">
+          <a class="u-pagination-v1__item u-pagination-v1-2 u-pagination-v1-2--active g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" >&laquo;</a>
+        </li>
+        {% endif %}
+        <p></p>
+        {% for i in object_list.paginator.page_range %}
+        <p></p>
+        {% if object_list.number == i %}
+        <li class="list-inline-item g-hidden-xs-down">
+          <a
+            class="u-pagination-v1__item g-width-30 g-height-30 g-brd-transparent g-brd-primary--hover g-brd-primary--active g-color-secondary-dark-v1 g-bg-primary--active g-font-size-12 rounded g-pa-5"
+            href="#!"
+            >{{i}}</a
+          >
+        </li>
+        {% else %}
+        <li class="list-inline-item g-hidden-xs-down">
+          <a
+            class="u-pagination-v1__item g-width-30 g-height-30 g-brd-transparent g-brd-primary--hover g-brd-primary--active g-color-secondary-dark-v1 g-bg-primary--active g-font-size-12 rounded g-pa-5"
+            href="?page={{i}}">{{i}}</a
+          >
+        </li>
+        {% endif %}
+        <p></p>
+        {% endfor %}
+        <p>
+  
+        </p>
+        {% if object_list.has_next  %}
+        <li class="list-inline-item">
+          <a
+            class="u-pagination-v1__item g-brd-secondary-light-v2 g-brd-primary--hover g-color-gray-dark-v5 g-color-primary--hover g-font-size-12 rounded g-px-15 g-py-5 g-ml-15"
+            href="?page={{object_list.next_page_number}}"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">
+              Next
+              <i class="ml-2 fa fa-angle-right"></i>
+            </span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+        {% else %}
+        <li class="list-inline-item g-hidden-sm-down">
+          <a class="u-pagination-v1__item u-pagination-v1-2 g-brd-gray-light-v3 bilan g-brd-primary--hover g-pa-12-19" href="#!">15</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+  <!-- End Pagination -->
+  
+  {% endblock %}

@@ -1,0 +1,118 @@
+{% extends 'pages/base.html' %} {% block content %}
+<!-- Login - Heading -->
+<div class="g-max-width-645 text-center g-pt-100 mx-auto g-mb-80">
+  <h1 class="mb-0">Welcome back!</h1>
+</div>
+<!-- End Login - Heading -->
+
+<!-- Login -->
+<div class="container g-pb-30">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 text-center g-mb-70">
+      <h2 class="h5 mb-4">Sign in to your account</h2>
+      {% include 'pages/partials/_alerts.html' %}
+      <!-- Login Form -->
+      <form class="g-mb-30" action="{% url 'account:login' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="g-mb-20">
+          <input
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            name="username"
+            type="text"
+            placeholder="Email Address"
+          />
+        </div>
+
+        <div class="g-mb-20">
+          <input
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            name="password"
+            type="password"
+            placeholder="Enter your Password"
+          />
+        </div>
+
+        <button
+          class="btn btn-block u-btn-primary g-color-white g-bg-primary-dark-v1--hover g-font-weight-600 g-font-size-12 text-uppercase rounded-0 g-px-25 g-py-15"
+          type="submit"
+          type="submit"
+          value="Login"
+        >
+          Sign In
+        </button>
+      </form>
+      <!-- End Login Form -->
+
+      <div class="d-flex justify-content-between g-mb-10">
+        <a
+          class="d-block g-mb-10"
+          href="{% url 'account:register'%}?next={{request.path}"
+          >Create an account</a
+        >
+        <a class="d-block g-mb-10" href="page-forgot-password-1.html"
+          >Forgot Password?</a
+        >
+      </div>
+      <p class="g-font-size-12">
+        Please view our
+        <a class="g-color-text g-text-underline" href="#"
+          >Personal Information Collection Statement</a
+        >
+      </p>
+    </div>
+
+    <div class="col-md-6 col-lg-5 ml-lg-5 g-mb-70">
+      <!-- Icon Block -->
+      <div class="media g-mb-30">
+        <div class="d-flex mr-3">
+          <span class="u-icon-v1 u-icon-size--lg g-color-text">
+            <i class="icon-medical-022 u-line-icon-pro"></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="h5">Don’t miss a thing</h3>
+          <p>
+            Save your recomendations and stay updated on your favourite
+            portfolios.
+          </p>
+        </div>
+      </div>
+      <!-- End Icon Block -->
+
+      <!-- Icon Block -->
+      <div class="media g-mb-30">
+        <div class="d-flex mr-3">
+          <span class="u-icon-v1 u-icon-size--lg g-color-text">
+            <i class="icon-real-estate-083 u-line-icon-pro"></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="h5">Get organised</h3>
+          <p>Receive recomendations for updated portfolios.</p>
+        </div>
+      </div>
+      <!-- End Icon Block -->
+
+      <!-- Icon Block -->
+      <div class="media">
+        <div class="d-flex mr-3">
+          <span class="u-icon-v1 u-icon-size--lg g-color-text">
+            <i class="icon-real-estate-014 u-line-icon-pro"></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="h5">Make the most of resources</h3>
+          <p>
+            Claim your portfolio and access insights and tools to help you
+            understand the market.
+          </p>
+        </div>
+      </div>
+      <!-- End Icon Block -->
+    </div>
+  </div>
+</div>
+<!-- Login -->
+
+{% endblock %}

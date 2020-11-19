@@ -1,0 +1,185 @@
+{% extends 'pages/base.html' %} {% block content %}
+
+<!-- Login - Heading -->
+<div class="g-max-width-645 text-center g-pt-100 mx-auto g-mb-80">
+  <h1 class="mb-4">Be part of Africa's largest youth organization</h1>
+  <p class="lead">
+    <!-- Tailor your experience with Africa’s greatest fuel distributor. Access the
+    most efficient supply close to you. -->
+  </p>
+</div>
+<!-- End Login - Heading -->
+
+<!-- Login -->
+<div class="container g-pb-30">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 text-center g-mb-70">
+      <h2 class="h5 mb-4">Create your account today!</h2>
+
+      <!-- Login Form -->
+      {% include 'pages/partials/_alerts.html' %}
+      <form class="g-mb-30" action="{% url 'account:register' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="g-mb-20">
+          <input
+            name="email"
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            type="email"
+            placeholder="Email Address"
+          />
+        </div>
+        <div class="g-mb-20">
+          <input
+            name="username"
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            type="text"
+            placeholder="User Name"
+          />
+        </div>
+        <div class="g-mb-20">
+          <input
+            name="first_name"
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            type="text"
+            placeholder="First Name"
+          />
+        </div>
+        <div class="g-mb-20">
+          <input
+            name="last_name"
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            type="text"
+            placeholder="Last Name"
+          />
+        </div>
+        <div class="g-mb-20">
+          <input
+            name="password"
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            type="password"
+            placeholder="Create a Password"
+          />
+        </div>
+        <div class="g-mb-20">
+          <input
+            name="password2"
+            class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v3 g-brd-primary--hover rounded-0 g-py-13 g-px-15"
+            type="password"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <div class="g-mb-20">
+          <select
+            name="role"
+            class="js-custom-select w-100 h-100 u-select-v1 g-min-width-150 g-brd-left-none--md g-brd-gray-light-v3 g-color-main g-color-primary--hover g-pt-12 g-pb-13"
+            required
+            data-placeholder="Role"
+            data-open-icon="fa fa-angle-down"
+            data-close-icon="fa fa-angle-up"
+          >
+            <option>Account Type</option>
+            <option
+              class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active"
+              value="individual"
+            >
+              Individual Car
+            </option>
+
+            <option
+              class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active"
+              value="farm"
+            >
+              Farm Vehicles
+            </option>
+            <option
+              class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active"
+              value="fleet"
+            >
+              Fleet Vehicles
+            </option>
+            <option
+              class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active"
+              value="mine"
+            >
+              Mine Vehicles
+            </option>
+            <option
+              class="g-brd-none g-color-main g-color-white--hover g-color-white--active g-bg-primary--hover g-bg-primary--active"
+              value="school"
+            >
+              School Vehicles
+            </option>
+          </select>
+        </div>
+
+        <button
+          class="btn btn-block u-btn-primary g-color-white g-bg-primary-dark-v1--hover g-font-weight-600 g-font-size-12 text-uppercase rounded-0 g-px-25 g-py-15"
+          type="submit"
+        >
+          Create Account
+        </button>
+      </form>
+      <!-- End Login Form -->
+
+      <a
+        class="d-block g-mb-10"
+        href="{% url 'account:login'%}?next={{request.path}}"
+        >Already have an account? Sign in</a
+      >
+      <p class="g-font-size-12">
+        Please view our
+        <a class="g-color-text g-text-underline" href="#"
+          >Personal Information Collection Statement</a
+        >
+      </p>
+    </div>
+
+    <div class="col-md-6 col-lg-5 ml-lg-5 g-mb-70">
+      <!-- Icon Block -->
+      <div class="media g-mb-30">
+        <div class="d-flex mr-3">
+          <span class="u-icon-v1 u-icon-size--lg g-color-text">
+            <i class="icon-medical-022 u-line-icon-pro"></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="h5">Never queque for fuel</h3>
+          <p>Stay updated on your account delivery, across any device.</p>
+        </div>
+      </div>
+      <!-- End Icon Block -->
+
+      <!-- Icon Block -->
+      <div class="media g-mb-30">
+        <div class="d-flex mr-3">
+          <span class="u-icon-v1 u-icon-size--lg g-color-text">
+            <i class="icon-real-estate-083 u-line-icon-pro"></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="h5">Get organised</h3>
+          <p></p>
+        </div>
+      </div>
+      <!-- End Icon Block -->
+
+      <!-- Icon Block -->
+      <div class="media">
+        <div class="d-flex mr-3">
+          <span class="u-icon-v1 u-icon-size--lg g-color-text">
+            <i class="icon-real-estate-014 u-line-icon-pro"></i>
+          </span>
+        </div>
+        <div class="media-body">
+          <h3 class="h5">Make the most of your resources</h3>
+          <p></p>
+        </div>
+      </div>
+      <!-- End Icon Block -->
+    </div>
+  </div>
+</div>
+<!-- Login -->
+
+{% endblock %}

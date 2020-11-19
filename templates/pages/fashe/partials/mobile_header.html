@@ -1,0 +1,29 @@
+{% load static %}
+<!-- Header Mobile -->
+<div class="wrap_header_mobile">
+    <!-- Logo moblie -->
+    <a href="{% url 'pages:index' %}" class="logo-mobile">
+        <img src="{% static 'fashe/images/icons/logo.png' %}" alt="IMG-LOGO">
+    </a>
+
+    <!-- Button show menu -->
+    <div class="btn-show-menu">
+        <!-- Header Icon mobile -->
+        <div class="header-icons-mobile">
+            <a href="{% url 'pages:index' %}" class="header-wrapicon1 dis-block">
+                <img src="{% static 'fashe/images/icons/logo.png' %}" class="header-icon1" alt="ICON">
+            </a>
+
+            <span class="linedivide2"></span>
+
+            {% include 'pages/fashe/partials/mobile_header_cart.html'%}
+        </div>
+
+        <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </div>
+    </div>
+</div>
+{% include 'pages/fashe/partials/mobile_menu.html'%}

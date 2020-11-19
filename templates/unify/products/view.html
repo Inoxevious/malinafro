@@ -1,0 +1,26 @@
+<h2>Search here</h2>
+
+
+
+<h2>Products List </h2>
+
+
+{% for p in qs %}
+
+<p>{{ p.name }}</p>
+<a href="{% url 'products:add_to_cart' p.id %}">add item</a>
+
+
+{% endfor %}
+
+
+
+<h2>results page</h2>
+ {{ image }}
+<ul>
+    {% for city in object_list %}
+      <li>
+        {{ city.name }}
+      </li>
+    {% endfor %}
+  </ul>
