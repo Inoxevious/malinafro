@@ -4,6 +4,7 @@
         <div class="slick1">
             {% if object_list %}
             {% for cat in object_list %}
+            {% if cat.image %}
             <div class="item-slick1 item1-slick1" style="background-image: url({{cat.image.url}});
               background-color: #cccccc;
   height: 500px;
@@ -37,6 +38,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}
             {% endif %}
 

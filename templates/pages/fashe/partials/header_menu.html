@@ -50,8 +50,9 @@
                     <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                         <!-- block1 -->
                         <div class="block1 hov-img-zoom pos-relative m-b-30">
+                            {% if item.image  %}
                             <img src="{{item.image.url}}" alt="IMG-BENNER">
-
+                            {% endif %}
                             <div class="block1-wrapbtn w-size2">
                                 <!-- Button -->
                                 <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
@@ -70,134 +71,5 @@
     </div><!-- .first-widget !-->
     {% endfor %}
     {% endif %}
-    <div id="summer-look-widget" class="widget-container menu_hide">
-        <!-- Banner -->
-        <div style="margin-top: 20px;" class="banner bgwhite p-t-40 p-b-40">
-            <div class="container">
-                <div class="row">
-                    {% if menu_ads_summer_look  %}
-                    {% for item in  menu_ads_summer_look %}
-                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                        <!-- block1 -->
-                        <div class="block1 hov-img-zoom pos-relative m-b-30">
-                            <img src="{{item.image.url}}" alt="IMG-BENNER">
 
-                            <div class="block1-wrapbtn w-size2">
-                                <!-- Button -->
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    {{item.title}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div><!-- .second-widget !-->
-    <div id="lovers-show-widget" class="widget-container menu_hide">
-        <!-- Banner -->
-        <div style="margin-top: 20px;" class="banner bgwhite p-t-40 p-b-40">
-            <div class="container">
-                <div class="row">
-                    {% if menu_ads_lovers_show_off  %}
-                    {% for item in  menu_ads_lovers_show_off %}
-                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                        <!-- block1 -->
-                        <div class="block1 hov-img-zoom pos-relative m-b-30">
-                            <img src="{{item.image.url}}" alt="IMG-BENNER">
-
-                            <div class="block1-wrapbtn w-size2">
-                                <!-- Button -->
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    {{item.title}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div><!-- .third-widget !-->
-    <div id="personalities-widget" class="widget-container menu_hide">
-        <!-- Banner -->
-        <div style="margin-top: 20px;" class="banner bgwhite p-t-40 p-b-40">
-            <div class="container">
-                <div class="row">
-                    {% if menu_ads_ambitious_personalities  %}
-                    {% for item in  menu_ads_ambitious_personalities %}
-                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                        <!-- block1 -->
-                        <div class="block1 hov-img-zoom pos-relative m-b-30">
-                            <img src="{{item.image.url}}" alt="IMG-BENNER">
-
-                            <div class="block1-wrapbtn w-size2">
-                                <!-- Button -->
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    {{item.title}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div><!-- .4th-widget !-->
-    <div id="kidz-widget" class="widget-container menu_hide">
-        <!-- Banner -->
-        <div style="margin-top: 20px;" class="banner bgwhite p-t-40 p-b-40">
-            <div class="container">
-                <div class="row">
-                    {% if menu_ads_ambitious_kidz  %}
-                    {% for item in  menu_ads_ambitious_kidz %}
-                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                        <!-- block1 -->
-                        <div class="block1 hov-img-zoom pos-relative m-b-30">
-                            <img src="{{item.image.url}}" alt="IMG-BENNER">
-
-                            <div class="block1-wrapbtn w-size2">
-                                <!-- Button -->
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    {{item.title}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div><!-- .5th-widget !-->
-    <div id="blog-widget" class="widget-container menu_hide">
-        <!-- Banner -->
-        <div style="margin-top: 20px;" class="banner bgwhite p-t-40 p-b-40">
-            <div class="container">
-                <div class="row">
-                    {% if menu_ads_fashion_blog  %}
-                    {% for item in  menu_ads_fashion_blog %}
-                    <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                        <!-- block1 -->
-                        <div class="block1 hov-img-zoom pos-relative m-b-30">
-                            <img src="{{item.image.url}}" alt="IMG-BENNER">
-
-                            <div class="block1-wrapbtn w-size2">
-                                <!-- Button -->
-                                <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                    {{item.title}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div><!-- .6th-widget !-->
 </div>
