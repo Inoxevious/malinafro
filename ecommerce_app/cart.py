@@ -23,6 +23,8 @@ def add_item_to_cart(request):
 
     product_id = request.form_data['product_id']
     quantity = request.form_data['quantity']
+    size = request.POST['size']
+    color = request.POST['color']
 
     p = get_object_or_404(Product, id=product_id)
 
@@ -44,6 +46,9 @@ def add_item_to_cart(request):
             price = price,
             quantity = quantity,
             product_id = product_id,
+            size = size,
+            color = color,
+
         )
 
         # item.cart_id = cart_id

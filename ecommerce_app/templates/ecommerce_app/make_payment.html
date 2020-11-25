@@ -5,19 +5,50 @@
 {% block title %}Make Payment{% endblock %}
 
 {% block content %}
-
+{% include 'pages/fashe/partials/header.html'%}
 <section class="cart bgwhite p-t-70 p-b-100">
     <div class="container">
         <div class="row">
             <div class="col-4">
+                <div style="padding-top: 10%;" class="w-size35">
+                    <!-- Button -->
+                    <button style="padding: 20px;" class="flex-c-m bg1 bo-rad-23  m-text3 trans-0-4">
+                        <a href="{% url 'ecommerce_app:process_payment_payow' %}">
+                            Pay with Paynow
+                        </a>
 
+                    </button>
+
+
+
+                </div>
+                <div>
+                    <h4 class="m-text26 p-b-36 p-t-15">Use EcoCash</h4>
+                    <form action="{% url 'ecommerce_app:process_payment_payow' %}" method="POST">
+                        {% csrf_token %}
+                        <div style="width: 300px;" class="bo4 sizefull of-hidden size10 m-b-20">
+                            <input type="text" name="phone" value="{{ order.phone }}">
+
+                        </div><span>
+                            <input style="padding-left: 15px; padding-right: 15px;"
+                                class="flex-c-m  bg1 bo-rad-23 hov1 s-text1 trans-0-4" type="submit" name="submit"
+                                value="pay">
+                        </span>
+                    </form>
+
+                </div>
             </div>
             <div class="col-4">
                 <h4 class="m-text26 p-b-36 p-t-15">Pay with PayPal</h4>
                 {{ form.render }}
+
+
+
+            </div>
+            <div class="col-4">
                 <div style="padding-top: 10%;" class="w-size35">
                     <!-- Button -->
-                    <button class="flex-c-m bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+                    <button style="padding: 20px;" class="flex-c-m bg1 bo-rad-23  m-text3 trans-0-4">
                         <a href="{% url 'ecommerce_app:request_to_order' %}">
                             Request To Order
                         </a>
@@ -27,9 +58,6 @@
 
 
                 </div>
-            </div>
-            <div class="col-4">
-
             </div>
 
 

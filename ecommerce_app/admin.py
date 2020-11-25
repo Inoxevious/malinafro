@@ -6,10 +6,17 @@ from .models import *
 
 class ProductAdmin(admin.ModelAdmin):
     list_display =['id', 'name', 'price']
+class SubCategoryAdmin(admin.ModelAdmin):
+    list_display =['id', 'short_name', 'main_category']
 
+class SalesCategorieAdmin(admin.ModelAdmin):
+    list_display =['id', 'short_name']
+
+class MenuItemsAdmin(admin.ModelAdmin):
+    list_display =['id', 'short_name','collecion_category']
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'email', 'date', 'paid']
+    list_display = ['id', 'name', 'phone', 'date', 'paid']
     list_filter = ('id','requested','paid' )
 
 
@@ -35,6 +42,11 @@ admin.site.register(Order, OrderAdmin)
 admin.site.register(CartItem, OrderItemAdmin)
 admin.site.register(LineItem, LineItemAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(SubCategory)
+admin.site.register(SubCategory,SubCategoryAdmin)
+admin.site.register(SalesCategorie,SalesCategorieAdmin)
+admin.site.register(MenuItems,MenuItemsAdmin)
+admin.site.register(MainMenuAds)
+admin.site.register(Collection_Banner)
 admin.site.register(DepartmentAdverts, DepartmentAdvertsAdmin)
 admin.site.register(ProductAdverts)
+admin.site.register(ProductMaterialMainColor)

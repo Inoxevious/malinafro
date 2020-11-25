@@ -17,7 +17,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.files import File
 from django.http import HttpResponse, StreamingHttpResponse
 from django.utils.text import slugify
-
+from ecommerce_app import cart
 from ecommerce_app.models import *
 def dept_detail(request,dept_id):
         totaldict = {}
@@ -105,10 +105,42 @@ def index(request):
     # size1_ankara_senator_wear = Product.objects.filter(size1_model_image = 1)
     depts = Department.objects.all()  
     all_products = Product.objects.all()
+    collection = Collection_Banner.objects.all()[:1]
+    casual_collection =  Product.objects.filter(sub_category = 2 )
+    quick_rail_collection =  Product.objects.filter(sub_category = 1 )
     print('ARTICLESSSS image', articles)
+        
+
+    cart_sum = cart.item_count(request)
+    cart_subtotal = cart.subtotal(request)
+    print("CRT ITEMS SUM", cart_sum)
+    if request.method == 'POST':
+        try:
+            shipping_cost = request.POST['city']
+            request.session['shipping_cost'] = shipping_cost
+        except MultiValueDictKeyError:
+            shipping_cost = 0
+
+    cart_items = cart.get_all_cart_items(request)
+    menu_ads = MainMenuAds.objects.all()
+    menu_ads_summer_look = MainMenuAds.objects.filter(category='summer_look')[:3]
+    menu_ads_lovers_show_off = MainMenuAds.objects.filter(category='lovers_show_off')[:3]
+    menu_ads_ambitious_personalities = MainMenuAds.objects.filter(category='ambitious_personalities')[:3]
+    menu_ads_ambitious_kidz = MainMenuAds.objects.filter(category='ambitious_kidz')[:3]
+    menu_ads_fashion_blog = MainMenuAds.objects.filter(category='fashion_blog')[:3]
+    menu_items = MenuItems.objects.all()
     context = { 'object_list': paged_object_list,
             
                 'about_us': about_us,
+                'menu_items':menu_items,
+                'casual_collection':casual_collection,
+                'quick_rail_collection':quick_rail_collection,
+                'menu_ads':menu_ads,
+                'menu_ads_summer_look':menu_ads_summer_look,
+                'menu_ads_lovers_show_off':menu_ads_lovers_show_off,
+                'menu_ads_ambitious_personalities':menu_ads_ambitious_personalities,
+                'menu_ads_ambitious_kidz':menu_ads_ambitious_kidz,
+                'menu_ads_fashion_blog':menu_ads_fashion_blog,
                 # 'product': product,
                 'sub_category': sub_category,
                 'ankara_accesories':ankara_accesories,
@@ -122,7 +154,11 @@ def index(request):
                 'on_sale': on_sale,
                 'articles': articles,
                 'open_show': open_show,
+                'collection':collection,
                 'department_ads': department_ads,
+                'cart_sum':cart_sum,
+                'cart_subtotal':cart_subtotal,
+                'cart_items': cart_items,
     
 
      }
@@ -168,15 +204,32 @@ def primary(request):
 
     return render(request, 'pages/primary.html', context)
 
-def view_cat_products(request, cat_id):
-    print('Cat ID', cat_id)
-    cat_products = Product.objects.filter(category_id=cat_id)
+def view_cat_products(request, category_slug):
+    print('Cat name',category_slug)
+    cat_products = Product.objects.filter(collecion_category=category_slug)
     print('CAT PRODCUTS', cat_products)
     depts = Category.objects.all()  
     # print('CATEGORIES', depts.id, "name", depts.short_name)
+    cart_sum = cart.item_count(request)
+    cart_subtotal = cart.subtotal(request)
+    print("CRT ITEMS SUM", cart_sum)
+    if request.method == 'POST':
+        try:
+            shipping_cost = request.POST['city']
+            request.session['shipping_cost'] = shipping_cost
+        except MultiValueDictKeyError:
+            shipping_cost = 0
+    menu_ads = MainMenuAds.objects.all()
+    cart_items = cart.get_all_cart_items(request)
+    menu_items = MenuItems.objects.all()
     context = { 
                 'depts': depts,
+                'menu_items':menu_items,
+                'menu_ads':menu_ads,
                 'cat_products': cat_products,
+                'cart_sum':cart_sum,
+                'cart_subtotal':cart_subtotal,
+                'cart_items': cart_items,
     
      }
 

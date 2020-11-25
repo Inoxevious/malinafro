@@ -3,23 +3,18 @@
     <nav class="side-menu">
         <ul class="main-menu">
             <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-                <span class="topbar-child1">
-                    Free shipping for standard order over $100
+                <span style="color: maroon;" class="topbar-child1">
+                    Free delivery in Zimbabwe for standard order over $50
                 </span>
             </li>
 
             <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
                 <div class="topbar-child2-mobile">
                     <span class="topbar-email">
-                        fashe@example.com
+                        info@malinafrocouture.com
                     </span>
 
-                    <div class="topbar-language rs1-select2">
-                        <select class="selection-1" name="time">
-                            <option>USD</option>
-                            <option>EUR</option>
-                        </select>
-                    </div>
+
                 </div>
             </li>
 
@@ -34,32 +29,28 @@
             </li>
 
             <li class="item-menu-mobile">
-                <a href="index.html">Home</a>
+                <a href="{% url 'pages:index' %}">Just In</a>
                 <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
             </li>
 
             <li class="item-menu-mobile">
-                <a href="product.html">Shop</a>
+                <a href="{% url 'pages:index' %}">Summer look</a>
             </li>
 
             <li class="item-menu-mobile">
-                <a href="product.html">Sale</a>
+                <a href="{% url 'pages:index' %}">Lovers show-off</a>
             </li>
 
             <li class="item-menu-mobile">
-                <a href="cart.html">Features</a>
+                <a href="{% url 'pages:index' %}">Ambitious Personalities</a>
             </li>
 
             <li class="item-menu-mobile">
-                <a href="blog.html">Blog</a>
+                <a href="{% url 'pages:index' %}">Ambitious Kidz</a>
             </li>
 
             <li class="item-menu-mobile">
-                <a href="about.html">About</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="contact.html">Contact</a>
+                <a href="{% url 'pages:index' %}">Fashion Blog</a>
             </li>
         </ul>
     </nav>

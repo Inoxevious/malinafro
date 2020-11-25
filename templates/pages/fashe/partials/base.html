@@ -3,11 +3,11 @@
 <html lang="en">
 
 <head>
-    <title>Malin Afrocouture</title>
+    <title>Malin AfroCouture</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{% static 'fashe/images/icons/malin icon.png' %}" />
+    <link rel="icon" type="image/png" href="{% static 'fashe/images/icons/malin icon2.png' %}" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'fashe/vendor/bootstrap/css/bootstrap.min.css' %}">
     <!--===============================================================================================-->
@@ -36,15 +36,27 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'fashe/css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'fashe/css/main.css' %}">
+    <style>
+        .menu_hide {
+            display: none;
+            background-color: whitesmoke;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
     <!--===============================================================================================-->
 </head>
 
 <body>
-    {% include 'pages/fashe/partials/header.html'%}
+
     {% block content %} {% endblock %}
     {% include 'pages/fashe/partials/footer.html'%}
 </body>
-<script src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=sb">
+
+
+</script>
 <!-- <script>paypal.Buttons().render('body');</script> -->
 <!--===============================================================================================-->
 <script type="text/javascript" src="{% static 'fashe/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
@@ -71,6 +83,7 @@
 <!--===============================================================================================-->
 <script type="text/javascript" src="{% static 'fashe/vendor/sweetalert/sweetalert.min.js' %}"></script>
 <script type="text/javascript">
+
     $('.block2-btn-addcart').each(function () {
 
         var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
@@ -86,6 +99,16 @@
         $(this).on('click', function () {
             swal(nameProduct, "is added to wishlist !", "success");
         });
+    });
+
+    $('#main-menu a').mouseover(function () {
+        var $this = $(this);
+        var id = $this.attr('rel');
+        var $currentWidget = $('#' + id);
+        $currentWidget.show().siblings('.widget-container').hide();
+    });
+    $('#wrap').mouseleave(function () {
+        $('.widget-container').hide();
     });
 </script>
 

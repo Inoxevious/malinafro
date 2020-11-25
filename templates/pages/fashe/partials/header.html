@@ -12,38 +12,33 @@
                 <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
             </div>
 
-            <span class="topbar-child1">
-                Free shipping for standard order over $100
+            <span style="color: maroon;" class="topbar-child1">
+                Free delivery in Zimbabwe for standard order over $50
             </span>
 
             <div class="topbar-child2">
 
 
-                <div class="topbar-language rs1-select2">
-                    <select class="selection-1" name="time">
-                        <option>USD</option>
-                        <option>EUR</option>
-                    </select>
-                </div>
+
             </div>
         </div>
 
-        <div class="wrap_header">
+        <div style="opacity:10; background-color:goldenrod" class="wrap_header">
             <!-- Logo -->
             <a href="{% url 'pages:index' %}">
-                <img style="height: 60px;
+                <img style="height: 70px;
                   display: block;
   position: absolute;
-  left: 52px;
+  left: -30px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
-  transform: translateY(-50%);" src="{% static 'fashe/images/icons/logo.png' %}" alt="IMG-LOGO">
+  transform: translateY(-50%);" src="{% static 'fashe/images/icons/website logo.png' %}" alt="IMG-LOGO">
             </a>
 
-
+            <span style="background-color: maroon;" class="linedivide1"></span>
 
             {% include 'pages/fashe/partials/header_menu.html'%}
             {% include 'pages/fashe/partials/header_cart.html'%}

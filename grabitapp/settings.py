@@ -96,34 +96,34 @@ FILE_UPLOAD_PERMISSIONS=0o640
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 # AWS CREDENTIALS
-AWS_RDS_USERNAME='postgres'
-AWS_RDS_PASSWORD='Tapuwa1234'
-SOURVE='209.88.93.187/32'
-AWS_RDS_ENDPOINT= 'malinafrodb.c9bwramxwsbn.eu-west-2.rds.amazonaws.com'
-AWS_RDS_DBNAME='malinafrodb'
+# AWS_RDS_USERNAME='postgres'
+# AWS_RDS_PASSWORD='Tapuwa1234'
+# SOURVE='209.88.93.187/32'
+# AWS_RDS_ENDPOINT= 'malinafrodb.c9bwramxwsbn.eu-west-2.rds.amazonaws.com'
+# AWS_RDS_DBNAME='malinafrodb'
 
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql', #''django.db.backends.postgresql_psycopg2',  #'django.db.backends.mysql',
+#             'NAME': AWS_RDS_DBNAME,
+#             'USER': AWS_RDS_USERNAME,
+#             'PASSWORD': AWS_RDS_PASSWORD,
+#             'HOST': AWS_RDS_ENDPOINT,
+#             'PORT': 5432,
+#             'CONN_MAX_AGE': 15, 
+#         }
+#     }
 DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql', #''django.db.backends.postgresql_psycopg2',  #'django.db.backends.mysql',
-            'NAME': AWS_RDS_DBNAME,
-            'USER': AWS_RDS_USERNAME,
-            'PASSWORD': AWS_RDS_PASSWORD,
-            'HOST': AWS_RDS_ENDPOINT,
+            'ENGINE': 'django.contrib.gis.db.backends.postgis', #''django.db.backends.postgresql_psycopg2',  #'django.db.backends.mysql',
+            'NAME': 'malin',
+            'USER': 'postgres',
+            'PASSWORD': 'postgres',
+            'HOST': 'localhost',
             'PORT': 5432,
             'CONN_MAX_AGE': 15, 
         }
     }
-# DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.contrib.gis.db.backends.postgis', #''django.db.backends.postgresql_psycopg2',  #'django.db.backends.mysql',
-#             'NAME': 'malin',
-#             'USER': 'postgres',
-#             'PASSWORD': 'postgres',
-#             'HOST': 'localhost',
-#             'PORT': POSTGRESQL_ADDON_PORT,
-#             'CONN_MAX_AGE': 15, 
-#         }
-#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

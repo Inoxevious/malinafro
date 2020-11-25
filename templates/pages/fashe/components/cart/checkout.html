@@ -5,6 +5,7 @@
 Checkout |
 {% endblock %}
 <p>{% block content %}</p>
+{% include 'pages/fashe/partials/header.html'%}
 <!-- Title Page -->
 <section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-01.jpg);">
     <h2 class="l-text2 t-center">
@@ -84,7 +85,7 @@ Checkout |
                             <tr>
                                 <td>
                                     <div class="cart-img-product b-rad-4 o-f-hidden">
-                                        <img src="{{ item.product.image.url }}" alt="IMG-PRODUCT">
+                                        <img src="{{ item.product.first_image.url }}" alt="IMG-PRODUCT">
                                     </div>
                                 </td>
                                 <td style="padding-left: 40px;">{{ item.product.name }}</td>
