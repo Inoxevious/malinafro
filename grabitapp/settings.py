@@ -95,12 +95,12 @@ FILE_UPLOAD_PERMISSIONS=0o640
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# AWS CREDENTIALS
-# AWS_RDS_USERNAME='postgres'
-# AWS_RDS_PASSWORD='Tapuwa1234'
-# SOURVE='209.88.93.187/32'
-# AWS_RDS_ENDPOINT= 'malinafrodb.c9bwramxwsbn.eu-west-2.rds.amazonaws.com'
-# AWS_RDS_DBNAME='malinafrodb'
+AWS CREDENTIALS
+AWS_RDS_USERNAME='postgres'
+AWS_RDS_PASSWORD='Tapuwa1234'
+SOURVE='209.88.93.187/32'
+AWS_RDS_ENDPOINT= 'malinafrodb.c9bwramxwsbn.eu-west-2.rds.amazonaws.com'
+AWS_RDS_DBNAME='malinafrodb'
 
 DATABASES = {
         'default': {
