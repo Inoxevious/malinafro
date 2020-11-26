@@ -3,6 +3,7 @@
 <header class="header1">
     <!-- Header desktop -->
     <div class="container-menu-header">
+
         <div class="topbar">
             <div class="topbar-social">
                 <a href="#" class="topbar-social-item fa fa-facebook"></a>
@@ -26,6 +27,7 @@
         <div style="opacity:10; background-color:goldenrod" class="wrap_header">
             <!-- Logo -->
             <a href="{% url 'pages:index' %}">
+                {% for about_us in about_us %}
                 <img style="height: 70px;
                   display: block;
   position: absolute;
@@ -35,9 +37,10 @@
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
-  transform: translateY(-50%);" src="{% static 'fashe/images/icons/website logo.png' %}" alt="IMG-LOGO">
-            </a>
+  transform: translateY(-50%);" src="{{about_us.logo}}" alt="IMG-LOGO">
 
+            </a>
+            {% endfor %}
             <span style="background-color: maroon;" class="linedivide1"></span>
 
             {% include 'pages/fashe/partials/header_menu.html'%}

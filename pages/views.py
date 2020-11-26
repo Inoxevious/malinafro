@@ -87,7 +87,7 @@ def index(request):
     print('HOD FOUND',cat)
     
     sub_category = SubCategory.objects.all()
-    department_ads = DepartmentAdverts.objects.all()
+    home_department_ads = DepartmentAdverts.objects.all()
     about_us = About_us.objects.all()
     print('about us', about_us)
     notices  = NoticeBoard.objects.all()   
@@ -129,10 +129,14 @@ def index(request):
     menu_ads_ambitious_kidz = MainMenuAds.objects.filter(category='ambitious_kidz')[:3]
     menu_ads_fashion_blog = MainMenuAds.objects.filter(category='fashion_blog')[:3]
     menu_items = MenuItems.objects.all()
+    about_us = About_us.objects.all()
+    print('ABOUT US', about_us)
     context = { 'object_list': paged_object_list,
             
                 'about_us': about_us,
+                'home_department_ads':home_department_ads,
                 'menu_items':menu_items,
+                'about_us':about_us,
                 'casual_collection':casual_collection,
                 'quick_rail_collection':quick_rail_collection,
                 'menu_ads':menu_ads,
@@ -222,9 +226,13 @@ def view_cat_products(request, category_slug):
     menu_ads = MainMenuAds.objects.all()
     cart_items = cart.get_all_cart_items(request)
     menu_items = MenuItems.objects.all()
+    about_us = About_us.objects.all()
+    
+
     context = { 
                 'depts': depts,
                 'menu_items':menu_items,
+                'about_us':about_us,
                 'menu_ads':menu_ads,
                 'cat_products': cat_products,
                 'cart_sum':cart_sum,

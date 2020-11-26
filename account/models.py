@@ -45,6 +45,8 @@ class AccountUser(models.Model):
 
 class About_us(models.Model):
     tag_text =models.CharField(max_length=50,null=True ,blank=True)
+    logo = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
+    icon = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
     image1 = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
     image2 = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
     image3 = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
@@ -54,7 +56,7 @@ class About_us(models.Model):
     statement2 =models.TextField(null=True ,blank=True)
     statement3 =models.TextField(null=True ,blank=True)
     isActive = models.BooleanField(default=True)
-    isFaceBanner = models.BooleanField(default=True)
+    isFaceBanner = models.BooleanField(default=False)
     written_date = models.DateTimeField()
     published_date = models.DateTimeField()
     expire_date = models.DateTimeField()
@@ -110,6 +112,8 @@ class Articles(models.Model):
     expire_date = models.DateTimeField()
     def __str__(self):
         return self.title
+
+
 
 
 

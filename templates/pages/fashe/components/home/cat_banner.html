@@ -3,11 +3,13 @@
 <div class="banner bgwhite p-t-40 p-b-40">
     <div class="container">
         <div class="row">
+            {% for ad in home_department_ads %}
             <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                 <!-- block1 -->
                 <div class="block1 hov-img-zoom pos-relative m-b-30">
-                    <img src="{% static 'fashe/images/queen team.png' %}" alt="IMG-BENNER">
-
+                    {% if ad.image %}
+                    <img src="{{ad.image}}" alt="IMG-BENNER">
+                    {% endif %}
                     <div class="block1-wrapbtn w-size2">
                         <!-- Button -->
                         <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
@@ -16,34 +18,8 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                <!-- block1 -->
-                <div class="block1 hov-img-zoom pos-relative m-b-30">
-                    <img src="{% static 'fashe/images/legacy team.png' %}" alt="IMG-BENNER">
-
-                    <div class="block1-wrapbtn w-size2">
-                        <!-- Button -->
-                        <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                            Daring Kings
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
-                <!-- block1 -->
-                <div class="block1 hov-img-zoom pos-relative m-b-30">
-                    <img src="{% static 'fashe/images/ambitious kidz.png' %}" alt="IMG-BENNER">
-
-                    <div class="block1-wrapbtn w-size2">
-                        <!-- Button -->
-                        <a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                            Ambitious Kids
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
