@@ -18,7 +18,7 @@
                         </span>
 
                         <h3 style="color: goldenrod;" class="l-text1 fs-35-sm">
-                            Lookbook
+                            Collection
                         </h3>
 
                         <a style="color:maroon" href="#" class="s-text4 hov2 p-t-20 ">
@@ -34,7 +34,8 @@
 
                     <div class="ab-t-l sizefull flex-col-c-b p-l-15 p-r-15 p-b-20">
                         <div class="t-center">
-                            <a href="product-detail.html" class="dis-block s-text3 p-b-5">
+                            <a href="{% url 'ecommerce_app:product_detail' collection.product.pk collection.product.slug %}"
+                                class="dis-block s-text3 p-b-5">
                                 {{collection.product.name}}
                             </a>
 
@@ -48,45 +49,7 @@
                         </div>
 
                         <div class="flex-c-m p-t-44 p-t-30-xl">
-                            <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-                                <span class="m-text10 p-b-1 days">
-                                    69
-                                </span>
 
-                                <span class="s-text5">
-                                    days
-                                </span>
-                            </div>
-
-                            <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-                                <span class="m-text10 p-b-1 hours">
-                                    04
-                                </span>
-
-                                <span class="s-text5">
-                                    hrs
-                                </span>
-                            </div>
-
-                            <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-                                <span class="m-text10 p-b-1 minutes">
-                                    32
-                                </span>
-
-                                <span class="s-text5">
-                                    mins
-                                </span>
-                            </div>
-
-                            <div class="flex-col-c-m size3 bo1 m-l-5 m-r-5">
-                                <span class="m-text10 p-b-1 seconds">
-                                    05
-                                </span>
-
-                                <span class="s-text5">
-                                    secs
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
