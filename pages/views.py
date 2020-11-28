@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.core.paginator import Paginator
 from account.models import *
+from ecommerce_app.models import *
 import csv
 from io import StringIO
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -18,7 +19,7 @@ from django.core.files import File
 from django.http import HttpResponse, StreamingHttpResponse
 from django.utils.text import slugify
 from ecommerce_app import cart
-from ecommerce_app.models import *
+
 def dept_detail(request,dept_id):
         totaldict = {}
         dept = Department.objects.get(id=dept_id)
@@ -64,13 +65,13 @@ class HomePageView(TemplateView):
 
 def index(request):
 
-    global object_list, paged_object_list
-    object_list = Category.objects.all()
-    print('objet found',object_list)
+    # global object_list, paged_object_list
+    # object_list = Category.objects.all()
+    # print('objet found',object_list)
 
-    paginator = Paginator(object_list,5)
-    page = request.GET.get('page')
-    paged_object_list = paginator.get_page(page)
+    # paginator = Paginator(object_list,5)
+    # page = request.GET.get('page')
+    # paged_object_list = paginator.get_page(page)
     department_ads_dict = {}
     about_us_dict = {}
     appointment_date_dict = {}
@@ -83,8 +84,6 @@ def index(request):
     product_description_dict = {}
     product_name_dict = {}
     dept_id_dict = {}
-    cat = object_list
-    print('HOD FOUND',cat)
     
     sub_category = SubCategory.objects.all()
     home_department_ads = DepartmentAdverts.objects.all()
@@ -129,11 +128,8 @@ def index(request):
     menu_ads_ambitious_kidz = MainMenuAds.objects.filter(category='ambitious_kidz')[:3]
     menu_ads_fashion_blog = MainMenuAds.objects.filter(category='fashion_blog')[:3]
     menu_items = MenuItems.objects.all()
-    about_us = About_us.objects.all()
-    print('ABOUT US', about_us)
-    context = { 'object_list': paged_object_list,
-            
-                'about_us': about_us,
+
+    context = {
                 'home_department_ads':home_department_ads,
                 'menu_items':menu_items,
                 'about_us':about_us,
@@ -167,6 +163,9 @@ def index(request):
 
      }
     return render(request, 'pages/fashe/components/home/index.html', context)
+
+
+
 
 def guide(request):
     depts = Department.objects.all()  

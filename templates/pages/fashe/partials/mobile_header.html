@@ -1,17 +1,17 @@
 {% load static %}
 <!-- Header Mobile -->
 <div class="wrap_header_mobile">
+    <!-- Logo moblie -->
+    {% for about_us in about_us %}
+    <a href="{% url 'pages:index' %}" class="logo-mobile">
+        <img src="{{about_us.logo.url}}" alt="IMG-LOGO">
+    </a>
 
-
+    {% endfor %}
     <!-- Button show menu -->
     <div class="btn-show-menu">
         <!-- Header Icon mobile -->
         <div class="header-icons-mobile">
-            <a href="{% url 'pages:index' %}" class="header-wrapicon1 dis-block">
-                <img src="{% static 'fashe/images/icons/malin icon2.png' %}" class="header-icon1" alt="ICON">
-            </a>
-
-            <span class="linedivide2"></span>
 
             {% include 'pages/fashe/partials/mobile_header_cart.html'%}
         </div>

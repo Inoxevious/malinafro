@@ -6,6 +6,7 @@ class Category(models.Model):
     short_name = models.CharField(null=True ,blank=True,max_length=70)
     long_name = models.CharField(null=True ,blank=True,max_length=70)
     image = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
+    mobile_image = models.ImageField(upload_to="media/%Y/%m/%d",null=True, blank=True)
     description = models.TextField(null=True ,blank=True)
     def __str__(self):
         return self.short_name

@@ -28,30 +28,17 @@
                 </div>
             </li>
 
-            <li class="item-menu-mobile">
-                <a href="{% url 'pages:index' %}">Just In</a>
-                <i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
-            </li>
+            {% if menu_items %}
+            {% for menu in menu_items %}
+            <li>
+                <a class="first-link parent" rel="{{menu.collecion_category}}-widget"
+                    href="{% url 'pages:view_cat_products' menu.collecion_category %}">
+                    {{menu.short_name}}
+                </a>
 
-            <li class="item-menu-mobile">
-                <a href="{% url 'pages:index' %}">Summer look</a>
             </li>
-
-            <li class="item-menu-mobile">
-                <a href="{% url 'pages:index' %}">Lovers show-off</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="{% url 'pages:index' %}">Ambitious Personalities</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="{% url 'pages:index' %}">Ambitious Kidz</a>
-            </li>
-
-            <li class="item-menu-mobile">
-                <a href="{% url 'pages:index' %}">Fashion Blog</a>
-            </li>
+            {% endfor %}
+            {% endif %}
         </ul>
     </nav>
 </div>

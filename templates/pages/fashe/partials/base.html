@@ -6,8 +6,10 @@
     <title>Malin AfroCouture</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% for about_us in about_us %}
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{% static 'fashe/images/icons/malin icon2.png' %}" />
+    <link rel="icon" type="image/png" href="{{about_us.icon.url}}" />
+    {% endfor %}
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'fashe/vendor/bootstrap/css/bootstrap.min.css' %}">
     <!--===============================================================================================-->
@@ -36,12 +38,36 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'fashe/css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'fashe/css/main.css' %}">
+
     <style>
         .menu_hide {
             display: none;
             background-color: whitesmoke;
         }
     </style>
+    {% if object_list %}
+    {% for cat in object_list %}
+    {% if cat.image %}
+    <style>
+        @media (max-width: 480px) {
+            #picblock {
+                background-image: url({{cat.image.url}});
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+
+        @media (min-width: 481px) {
+            #picblock {
+                background-image: url({{cat.image.url}});
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    </style>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
     <script type="text/javascript">
 
     </script>
