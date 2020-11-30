@@ -30,7 +30,7 @@
 
             {% if menu_items %}
             {% for menu in menu_items %}
-            <li>
+            <li class="item-menu-mobile">
                 <a class="first-link parent" rel="{{menu.collecion_category}}-widget"
                     href="{% url 'pages:view_cat_products' menu.collecion_category %}">
                     {{menu.short_name}}
